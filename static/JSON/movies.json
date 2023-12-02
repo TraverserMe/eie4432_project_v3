@@ -1,0 +1,37 @@
+[
+    {
+        "name": "AI Creator",
+        "type": "sci-fi",
+        "aPrice": "100",
+        "sPrice": "50",
+        "ePrice": "20",
+        "duration": "120",
+        "image": "./images/movie_img/aicreator.jpg"
+    },
+    {
+        "name": "Aquaman",
+        "type": "action",
+        "aPrice": "100",
+        "sPrice": "50",
+        "ePrice": "20",
+        "duration": "140",
+        "image": "./images/movie_img/aquaman.jpg"
+    },
+    {
+        "name": "Quantummania",
+        "type": "sci-fi",
+        "aPrice": "100",
+        "sPrice": "50",
+        "ePrice": "20",
+        "duration": "160",
+        "image": "./images/movie_img/quantumania.jpg"
+    },
+    {
+        "name": "shazam",
+        "type": "action",
+        "aPrice": "100",
+        "sPrice": "50",
+        "ePrice": "20",
+        "image": "./images/movie_img/shazam.jpg"
+    }
+]

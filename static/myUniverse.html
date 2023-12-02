@@ -1,0 +1,227 @@
+<!-- 
+20046876D HUI Lai Yuk, Alex
+20062785D LEE Kin Nang, Harry
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy of Movie</title>
+    <link rel="icon" type="image/x-icon" href="./images/icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:ital@1&display=swap" rel="stylesheet">
+    <script src='https://code.jquery.com/jquery-3.7.1.min.js'
+        integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script>
+        <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src='./js/myUniverse.js'></script>
+    <script src='./js/autoLogout.js'></script>
+
+</head>
+
+
+<body>
+
+    <header class="text-light bg-dark fw-bolder">
+        <div class="d-flex justify-content-center align-content-center flex-column flex-sm-row">
+            <div id="icon">
+                <a class="nav-link" href="index.html">
+                    <div class="sun">
+                    </div>
+                    <div class="earth">
+                        <div class="moon"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="py-3 fs-5 text-center fw-bolder">
+                <a class="nav-link" href="index.html">Galaxy of Movie</a>
+            </div>
+            <div id="login" class="position-absolute top-0 end-0 mx-1" style="display: none;">
+                <a class="nav-link" href="login.html">Login now?</a>
+            </div>
+            <div id="logout" class="position-absolute top-0 end-0 m-1 text-end" style="display: none;">
+                <div id="username-lbl"></div>
+                <button class="btn btn-outline-danger px-1 py-0" id="logout-btn">Logout!</button>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-lg-center" id="navbarNavAltMarkup">
+                    <div class="navbar-nav text-lg-start">
+                        <a class="nav-link " href="index.html">Movie</a>
+                        <!-- <a class="nav-link active fw-bolder text-primary" href="order.html">Movie</a> -->
+                        <a class="nav-link " href="booking.html">Booking</a>
+                        <a class="nav-link active fw-bolder text-primary" href="myUniverse.html">My Universe</a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" style="display: none;">
+        <h1 class="m-3 row justify-content-center">My Universe</h1>
+        <div id="profile">
+            <div class="container mt-4">
+                <div class="m-3 row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card p-2 fs-4" style="background-color: gold;">
+                            <div class="card p-2">
+                                <div id="icon_img_container" class="d-flex justify-content-center">
+                                    <img src="" alt="" width="30%" id="icon_img">
+                                </div>
+                                <div class="profile-item">
+                                    <label class="profile-label fw-bolder ">Name:</label>
+                                    <span class="profile-value fs-5" id="profile_Name"></span>
+                                </div>
+                                <div class="profile-item">
+                                    <label class="profile-label fw-bolder ">Gender:</label>
+                                    <span class="profile-value fs-5" id="profile_Gender"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <button id="edit" class="p-1 py-0 btn btn-warning mx-1">Edit Profile</button>
+                            <button id="change-pw" class="py-0 py-0 btn btn-warning mx-1">Change Password</button>
+                        </div>
+                        <!-- use later -->
+                        <!-- <br> -->
+                        <!-- <div style="border: 0; background-color: gold;" class="card pt-2 fs-4 fw-bolder">
+                            <h4 class="text-center fw-bolder">Purchased Items</h4>
+                            <ul class="list-group rounded-2">
+                                <a href="#" style="text-decoration: none;" class="list-group-item">#</a>
+                                <a href="#" style="text-decoration: none;" class="list-group-item">#</a>
+                                <a href="#" style="text-decoration: none;" class="list-group-item">#</a>
+                            </ul>
+                        </div> -->
+                        <br>
+                        <div style="border: 0; background-color: gold;" class="card pt-2 fs-4 fw-bolder">
+
+                            <div class="profile-purchase-history">
+                                <h4 class="text-center fw-bolder">Purchase History</h4>
+                                <ul class="list-group" id="historyList">
+                                    <!-- <li href="#" style="text-decoration: none;" class="list-group-item">#</li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+                        <div style="border: 0; background-color: gold;" class="card pt-2 fs-4 fw-bolder">
+
+                            <div class="profile-purchase-history">
+                                <h4 class="text-center fw-bolder">Book History</h4>
+                                <ul class="list-group" id="bookHistoryList">
+                                    <!-- <li href="#" style="text-decoration: none;" class="list-group-item">#</li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="change-pw-page">
+            <div class="container mt-4">
+                <div class="m-3 row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card p-2 fs-4 fw-bolder " style="background-color: gold;">
+                            <div class="card p-2 fs-4 fw-bolder ">
+                                <form>
+                                    <div>
+                                        <label for="newPassword">Change Password:</label>
+                                        <input type="password" id="newPassword" class="form-control"
+                                            placeholder="New Password">
+                                    </div>
+                                    <div>
+                                        <label class="fs-5" for="newPasswordConfirm">Password Confirm:</label>
+                                        <input type="password" id="newPasswordConfirm" class="form-control"
+                                            placeholder="New Password Confirm">
+                                    </div>
+                                    <input type="submit" value="Submit" id="changepw-btn" class="mt-2 btn btn-outline-success">
+                                    <input type="button" value="Back" class="backButton mt-2 btn btn-secondary">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="edit-page">
+            <div class="container mt-4">
+                <div class="m-3 row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card p-2 fs-4 fw-bolder " style="background-color: gold;">
+                            <div class="card p-2 fs-4 fw-bolder ">
+                                <form>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="edit-email">Email:</label>
+                                            <input type="email" id="edit-email" class="form-control" placeholder="Enter your email"
+                                                autocomplete="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="edit-name">Username:</label>
+                                            <input type="text" id="edit-name" class="form-control" placeholder="Enter your name"
+                                                autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="my-1"></div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div style="display: inline-block; width: auto;" class="my-1">
+                                                <label for="edit-gender">Gender:</label>
+                                                <select id="edit-gender" class="form-control"
+                                                    style="display: inline-block; width: 150px;">
+                                                    <option value="">Select your gender</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div style="display: inline-block; width: auto;" class="my-1">
+                                                <label for="edit-birthdate">Birthdate:</label>
+                                                <input type="date" id="edit-birthdate" class="form-control"
+                                                    style="display: inline-block; width: 150px;" placeholder="Enter your birthdate"
+                                                    autocomplete="off">
+                                            </div>
+                    
+                                        </div>
+                                    </div>
+                                    <div class="my-1"></div>
+                                    <div class="col-md-12">
+                                        <label for="img" class="form-label">Choose a profile image:</label>
+                                        <input type="file" class="form-control" id="profile_img" name="img">
+                                    </div>
+                        
+                                    <input type="button" value="Edit" id="edit-btn" class="mt-2 btn btn-outline-success">
+                                    <input type="button" value="Back" class="backButton mt-2 btn btn-secondary">
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="./js/firebase.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+[
+    {
+        "username": "admin",
+        "password": "admin1234",
+        "email": "admin@admin1234",
+        "img": null,
+        "role": "admin",
+        "enabled": true
+    },
+    {
+        "username": "usergold",
+        "password": "user1234",
+        "email": "user@user1234",
+        "img": null,
+        "role": "usergold",
+        "enabled": true
+    },
+    {
+        "username": "user",
+        "password": "user1234",
+        "email": "user@user1234",
+        "img": null,
+        "role": "user",
+        "enabled": true
+    }
+]

@@ -1,0 +1,168 @@
+/* 
+20046876D HUI Lai Yuk, Alex
+20062785D LEE Kin Nang, Harry
+ */
+body {
+    margin: 0;
+    height: 100vh;
+    align-items: top;
+    min-height: 100%;
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#icon {
+    font-size: 1.5px;
+}
+
+.sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+
+}
+
+.earth,
+.moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: orbit 36.5s linear infinite;
+}
+
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: orbit 2.7s linear infinite;
+}
+
+.earth::before,
+.moon::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.5em;
+    right: 2.5em;
+    width: 3em;
+    height: 3em;
+    background-color: aqua;
+
+}
+
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bar {
+    fill: #a1a1a1;
+}
+
+.bar:hover {
+    fill: darkgray;
+}
+
+
+
+
+/* ------------------------------- */
+
+.dashboard {
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 400px;
+    max-width: 90%;
+    height: auto;
+    z-index: 9999;
+    background-color: #ffffff;
+    /* white background */
+    color: #000000;
+    /* black text */
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: right 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.dashboard.collapsed {
+    right: -380px;
+}
+
+/* CSS for the expand/collapse sign */
+.toggle-button {
+    border-radius: 5px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /* adjust the left property to position the button outside the left side */
+    background-color: green;
+    /* white background */
+    color: #000000;
+    /* black text */
+    border: black;
+    height: 100%;
+    padding: 6px;
+    /* increase padding for a bigger button */
+    font-size: 20px;
+    /* increase font size for bigger text */
+    cursor: pointer;
+}
+
+.dashboard.collapsed .toggle-button:before {
+    content: '<';
+}
+
+.dashboard .toggle-button:before {
+    content: '>';
+}
+
+/* CSS for mobile devices */
+@media (max-width: 767px) {
+    .toggle-button {
+        display: block;
+    }
+
+    .dashboard.collapsed {
+        right: -315px;
+
+    }
+
+    .dashboard {
+        right: 0;
+    }
+}

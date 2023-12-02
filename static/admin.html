@@ -1,0 +1,489 @@
+<!-- 
+20046876D HUI Lai Yuk, Alex
+20062785D LEE Kin Nang, Harry
+-->
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxy of Movie</title>
+  <link rel="icon" type="image/x-icon" href="./images/icon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:ital@1&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/admin.js"></script>
+
+</head>
+
+<body>
+  <header class="text-light bg-dark fw-bolder">
+    <div class="d-flex justify-content-center align-content-center flex-column flex-sm-row">
+      <div id="icon">
+        <a class="nav-link" href="index.html">
+          <div class="sun"></div>
+          <div class="earth">
+            <div class="moon"></div>
+          </div>
+        </a>
+      </div>
+      <div class="py-3 fs-5 text-center fw-bolder">
+        <a class="nav-link" href="index.html">Galaxy of Movie</a>
+      </div>
+      <div id="login" class="position-absolute top-0 end-0 mx-1" style="display: none">
+        <a class="nav-link" href="login.html">Login now?</a>
+      </div>
+      <div id="logout" class="position-absolute top-0 end-0 m-1 text-end" style="display: none">
+        <div id="username-lbl"></div>
+        <button class="btn btn-outline-danger px-1 py-0" id="logout-btn">Logout!</button>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-lg-center" id="navbarNavAltMarkup">
+          <div class="navbar-nav text-lg-start">
+            <a class="nav-link" href="index.html">Movie</a>
+            <!-- <a class="nav-link active fw-bolder text-primary" href="order.html">Movie</a> -->
+            <a class="nav-link" href="booking.html">Booking</a>
+            <a class="nav-link" href="myUniverse.html">My Universe</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container h-100" style="display: none">
+    <h1 class="m-3 row justify-content-center">Manage</h1>
+    <div class="d-flex justify-content-end flex-md-row flex-column">
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="add_movie_switch">Add Movie</button>
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="edit_movie_switch">Edit Movie</button>
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="delete_movie_switch">Delete Movie</button>
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="add_moviesession_switch">Add Moviesession</button>
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="edit_moviesession_switch">Edit Moviesession</button>
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="delete_moviesession_switch">Delete Moviesession</button>
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="search_moviesession_switch">Search Seat</button>
+      <button class="w-100 m-1 btn btn-dark switch-btn" id="search_user_switch">Search User</button>
+
+    </div>
+    <!-- <div class="text-info my-3 h-50 bg-white rounded">
+        <svg class="chart" width="100%" height="100%" aria-labelledby="title" role="img">
+          <g class="bar">
+            <rect width="10%" height="5%" x="2%"></rect>
+            <text x="15%" y="3%" dy=".35em">Movie A</text>
+          </g>
+          <g class="bar">
+            <rect width="20%" height="5%" y="10%" x="2%"></rect>
+            <text x="25%" y="13%" dy=".35em">Movie B</text>
+          </g>
+          <g class="bar">
+            <rect width="30%" height="5%" y="20%" x="2%"></rect>
+            <text x="35%" y="23%" dy=".35em">Movie C</text>
+          </g>
+          <g class="bar">
+            <rect width="40%" height="5%" y="30%" x="2%"></rect>
+            <text x="45%" y="33%" dy=".35em">Movie D</text>
+          </g>
+          <g class="bar">
+            <rect width="80%" height="5%" y="40%" x="2%"></rect>
+            <text x="85%" y="43%" dy=".35em">Movie E</text>
+          </g>
+        </svg>
+      </div> -->
+    <div class="card p-3">
+      <h4>Movie ticket sell</h4>
+
+      <div class="" id="add_movie">
+        <h5>Add a movie</h5>
+        <form>
+          <label for="add_movie_name">Movie name: </label>
+          <input type="text" value="" id="add_movie_name" class="form-control" placeholder="movie name" />
+          <br />
+          <label for="add_movie_type">Type: </label>
+          <select name="add_movie_type" id="add_movie_type" class="form-control">
+            <option value="" disabled selected>Select a type</option>
+            <option value="sci-fi">sci-fi</option>
+            <option value="action">action</option>
+          </select>
+          <br />
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <label for="Adult">Adult fee: </label>
+              <input type="number" value="" name="add_movie_adult_fee" id="add_movie_adult_fee"
+                class="form-control w-100" placeholder="$ Adult fee" />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="Student">Student fee: </label>
+              <input type="number" value="" name="add_movie_student_fee" id="add_movie_student_fee"
+                class="form-control w-100" placeholder="$ Student fee" />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="Elderlyd">Elderly fee: </label>
+              <input type="number" value="" name="add_movie_elderly_fee" id="add_movie_elderly_fee"
+                class="form-control w-100" placeholder="$ Elderly fee" />
+            </div>
+          </div>
+          <br />
+          <label for="add_movie_duration">Movie duration(mins): </label>
+          <input type="number" name="add_movie_duration" id="add_movie_duration" class="form-control"
+            placeholder="movie duration" />
+          <br />
+          <label for="add_movie_image" class="form-label">Choose a movie image:</label>
+          <input type="file" class="form-control" id="add_movie_image" name="add_movie_image" />
+          <span id="add_movie_image_message" class="text-info"></span>
+          <br />
+          <button class="btn btn-outline-dark w-100" id="add_movie_btn">Add</button>
+        </form>
+      </div>
+
+      <div class="" id="edit_movie">
+        <h5>Edit a movie</h5>
+        <form action="">
+          <select name="edit_movie_name" id="edit_movie_name" class="movie_select form-control">
+            <option value="default" disabled selected>Select a movie to edit</option>
+          </select>
+          <br />
+          <label for="edit_movie_type">Type: </label>
+          <select name="edit_movie_type" id="edit_movie_type" class="form-control">
+            <option value="default" disabled selected>Select a type</option>
+            <option value="sci-fi">sci-fi</option>
+            <option value="action">action</option>
+          </select>
+          <br />
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <label for="edit_movie_adult_fee">Adult fee: </label>
+              <input type="number" value="" name="edit_movie_adult_fee" id="edit_movie_adult_fee"
+                class="form-control w-100" placeholder="$ Adult fee" />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="edit_movie_student_fee">Student fee: </label>
+              <input type="number" value="" name="edit_movie_student_fee" id="edit_movie_student_fee"
+                class="form-control w-100" placeholder="$ Student fee" />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="edit_movie_elderly_fee">Elderly fee: </label>
+              <input type="number" value="" name="edit_movie_elderly_fee" id="edit_movie_elderly_fee"
+                class="form-control w-100" placeholder="$ Elderly fee" />
+            </div>
+          </div>
+          <br />
+          <label for="edit_movie_duration">Movie duration(mins): </label>
+          <input type="number" name="edit_movie_duration" id="edit_movie_duration" class="form-control"
+            placeholder="movie duration" />
+          <br />
+          <label for="edit_movie_image" class="form-label">Choose a movie image:</label>
+          <input type="file" class="form-control" id="edit_movie_image" name="edit_movie_image" />
+          <span id="edit_movie_image_message" class="text-info"></span>
+          <br />
+          <button class="btn btn-outline-dark w-100" id="edit_movie_btn">Edit</button>
+        </form>
+      </div>
+
+      <div class="" id="delete_movie">
+        <h5>Delete a movie</h5>
+        <form action="">
+          <label for="delete_movie_name">Select Movie to delete: </label>
+          <select name="delete_movie_name" id="delete_movie_name" class="form-control">
+            <option value="default">Select a movie to delete</option>
+          </select>
+          <br />
+          <label for="delete_movie_input">Enter the movie name to delete: </label>
+          <input type="text" name="delete_movie_input" id="delete_movie_input" class="form-control" />
+          <br />
+          <button class="btn btn-outline-dark w-100" id="delete_movie_btn">Delete</button>
+        </form>
+      </div>
+
+      <div class="" id="add_moviesession">
+        <h5>Add a Moviesession</h5>
+        <form action="">
+          <label for="add_moviesession_movie_name">Select Movie: </label>
+          <select name="add_moviesession_movie_name" id="add_moviesession_movie_name" class="movie_select form-control">
+            <option value="">Select a movie</option>
+          </select>
+          <br />
+          <label for="add_moviesession_house">House: </label>
+          <select name="add_moviesession_house" id="add_moviesession_house" class="form-control">
+            <option value="">Select a house</option>
+          </select>
+          <br />
+          <div id="add_moviesession_housemap" class="bg-white housemap" style="display: none">
+            <!-- use JSON to import SVG dynamically -->
+            <svg viewBox="-25 -25 950 500" preserveAspectRatio="xMidYMid meet" id="add_moviesession_seating_plan"
+              class="seating-plan" style="background-color: grey">
+              <!-- SVG elements will be dynamically generated here -->
+            </svg>
+          </div>
+          <br />
+          <div style="display: inline-block">
+            <label for="add_moviesession_start_time">Start:</label>
+            <input type="datetime-local" class="datetime" id="add_moviesession_start_time"
+              name="add_moviesession_start_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <label for="add_moviesession_end_time">End:</label>
+            <input type="datetime-local" class="datetime" id="add_moviesession_end_time"
+              name="add_moviesession_end_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <div id="add_moviesession_duration_label"></div>
+          </div>
+          <div></div>
+          <br />
+          <button class="btn btn-outline-dark w-100" id="add_moviesession_btn">Add</button>
+        </form>
+      </div>
+
+      <div class="" id="edit_moviesession">
+        <h5>Edit a Moviesession</h5>
+        <form action="">
+          <h6>Search Session:</h6>
+          <div style="display: inline-block">
+            <label for="edit_moviesession_select_movie_name">Select Movie: </label>
+            <select name="edit_moviesession_select_movie_name" id="edit_moviesession_select_movie_name"
+              class="movie_select">
+              <option value="">Movie</option>
+            </select>
+          </div>
+          <div style="display: inline-block">
+            <label for="edit_moviesession_select_house">House: </label>
+            <select name="edit_moviesession_select_house" id="edit_moviesession_select_house">
+              <option value="">Select a house</option>
+            </select>
+          </div>
+          <div style="display: inline-block">
+            <label for="edit_moviesession_select_start_time">Start:</label>
+            <input type="datetime-local" id="edit_moviesession_select_start_time"
+              name="edit_moviesession_select_start_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <label for="edit_moviesession_select_end_time">End:</label>
+            <input type="datetime-local" id="edit_moviesession_select_end_time"
+              name="edit_moviesession_select_end_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <button type="button" id="edit_moviesession_search_btn">Search</button>
+          </div>
+          <br />
+          <br />
+          <label for="edit_moviesession_session">Select Session: </label>
+          <select name="edit_moviesession_session" id="edit_moviesession_session" class="movie_select form-control"
+            size="3" style="height: auto"></select>
+          <br />
+          <div id="edit_moviesession_sessionmap" class="housemap" style="display: none">
+            <div style="display: inline-block">
+              <label for="edit_moviesession_movie_name">Movie: </label>
+              <select name="edit_moviesession_movie_name" id="edit_moviesession_movie_name" class="movie_select">
+                <option value="">Select a movie</option>
+              </select>
+            </div>
+            <div style="display: inline-block">
+              <label for="edit_moviesession_house">House: </label>
+              <select name="edit_moviesession_house" id="edit_moviesession_house">
+                <option value="">Select a house</option>
+              </select>
+            </div>
+            <div class="bg-white">
+              <!-- use JSON to import SVG dynamically -->
+              <svg viewBox="-25 -25 950 500" preserveAspectRatio="xMidYMid meet" id="edit_moviesession_seating_plan"
+                class="seating-plan" style="background-color: grey">
+                <!-- SVG elements will be dynamically generated here -->
+              </svg>
+            </div>
+          </div>
+          <div style="display: inline-block">
+            <label for="edit_moviesession_start_time">Start:</label>
+            <input type="datetime-local" class="datetime" id="edit_moviesession_start_time"
+              name="edit_moviesession_start_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <label for="edit_moviesession_end_time">End:</label>
+            <input type="datetime-local" class="datetime" id="edit_moviesession_end_time"
+              name="edit_moviesession_end_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <div id="edit_moviesession_duration_label"></div>
+          </div>
+          <div></div>
+          <br />
+          <button class="btn btn-outline-dark w-100" id="edit_moviesession_btn">edit</button>
+        </form>
+      </div>
+
+      <div class="" id="delete_moviesession">
+        <h5>Delete a Moviesession</h5>
+        <form action="">
+          <h6>Search Session:</h6>
+          <div style="display: inline-block">
+            <label for="delete_moviesession_select_movie_name">Select Movie: </label>
+            <select name="delete_moviesession_select_movie_name" id="delete_moviesession_select_movie_name"
+              class="movie_select">
+              <option value="">Movie</option>
+            </select>
+          </div>
+          <div style="display: inline-block">
+            <label for="delete_moviesession_select_house">House: </label>
+            <select name="delete_moviesession_select_house" id="delete_moviesession_select_house">
+              <option value="">Select a house</option>
+            </select>
+          </div>
+          <div style="display: inline-block">
+            <label for="delete_moviesession_select_start_time">Start:</label>
+            <input type="datetime-local" id="delete_moviesession_select_start_time"
+              name="delete_moviesession_select_start_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <label for="delete_moviesession_select_end_time">End:</label>
+            <input type="datetime-local" id="delete_moviesession_select_end_time"
+              name="delete_moviesession_select_end_time" />
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <button type="button" id="delete_moviesession_search_btn">Search</button>
+          </div>
+          <br />
+          <br />
+          <label for="delete_moviesession_session">Select Session: </label>
+          <select name="delete_moviesession_session" id="delete_moviesession_session" class="movie_select form-control"
+            size="3" style="height: auto"></select>
+          <br />
+          <button class="btn btn-outline-dark w-100" id="delete_moviesession_btn">Delete</button>
+        </form>
+      </div>
+
+      <div class="" id="search_moviesession">
+        <h5>Search a Moviesession</h5>
+        <h6>Search Session:</h6>
+        <div style="display: inline-block">
+          <label for="search_moviesession_select_movie_name">Select Movie: </label>
+          <select name="search_moviesession_select_movie_name" id="search_moviesession_select_movie_name"
+            class="movie_select">
+            <option value="">Movie</option>
+          </select>
+        </div>
+        <div style="display: inline-block">
+          <label for="search_moviesession_select_house">House: </label>
+          <select name="search_moviesession_select_house" id="search_moviesession_select_house">
+            <option value="">Select a house</option>
+          </select>
+        </div>
+        <div style="display: inline-block">
+          <label for="search_moviesession_select_start_time">Start:</label>
+          <input type="datetime-local" id="search_moviesession_select_start_time"
+            name="search_moviesession_select_start_time" />
+        </div>
+        <div style="display: inline-block" class="ms-2">
+          <label for="search_moviesession_select_end_time">End:</label>
+          <input type="datetime-local" id="search_moviesession_select_end_time"
+            name="search_moviesession_select_end_time" />
+        </div>
+        <div style="display: inline-block" class="ms-2">
+          <button type="button" id="search_moviesession_search_btn">Search</button>
+        </div>
+        <br />
+        <br />
+        <label for="search_moviesession_session">Select Session: </label>
+        <select name="search_moviesession_session" id="search_moviesession_session" class="movie_select form-control"
+          size="3" style="height: auto"></select>
+        <br />
+        <div id="search_moviesession_sessionmap" class="housemap" style="display: none">
+          <!-- <div style="display: inline-block">
+                <label for="search_moviesession_movie_name">Movie: </label>
+                <select
+                  name="search_moviesession_movie_name"
+                  id="search_moviesession_movie_name"
+                  class="movie_select">
+                  <option value="">Select a movie</option>
+                </select>
+              </div>
+              <div style="display: inline-block">
+                <label for="search_moviesession_house">House: </label>
+                <select name="search_moviesession_house" id="search_moviesession_house">
+                  <option value="">Select a house</option>
+                </select>
+              </div> -->
+          <div class="bg-white">
+            <!-- use JSON to import SVG dynamically -->
+            <svg viewBox="-25 -25 950 500" preserveAspectRatio="xMidYMid meet" id="search_moviesession_seating_plan"
+              class="seating-plan" style="background-color: grey">
+              <!-- SVG elements will be dynamically generated here -->
+            </svg>
+          </div>
+          <div class="text-center">
+            <button type="button" id="search_moviesession_all_seat_btn" class="w-50">All Seat</button>
+          </div>
+        </div>
+        <!-- <div style="display: inline-block">
+              <label for="search_moviesession_start_time">Start:</label>
+              <input
+                type="datetime-local"
+                class="datetime"
+                id="search_moviesession_start_time"
+                name="search_moviesession_start_time" />
+            </div>
+            <div style="display: inline-block" class="ms-2">
+              <label for="search_moviesession_end_time">End:</label>
+              <input
+                type="datetime-local"
+                class="datetime"
+                id="search_moviesession_end_time"
+                name="search_moviesession_end_time" />
+            </div> -->
+        <!-- <div style="display: inline-block" class="ms-2">
+              <div id="search_moviesession_duration_label">sads</div>
+            </div> -->
+        <br>
+
+        <div id="seat_infor">
+
+        </div>
+      </div>
+
+      <div class="" id="search_user">
+        <h5>search a user</h5>
+        <form action="">
+          <h6>Search user:</h6>
+          <div style="display: inline-block">
+            <label for="search_user_id">User ID</label>
+            <input type="text" class="form-control" id="search_user_id" name="search_user_id">
+          </div>
+          <div style="display: inline-block">
+            <label for="search_username">Username</label>
+            <input type="text" class="form-control" id="search_username" name="search_username">
+          </div>
+          <div style="display: inline-block" class="ms-2">
+            <button type="button" id="search_user_search_btn">Search</button>
+          </div>
+          <br />
+          <br />
+          <label for="search_user_list">Select user: </label>
+          <select name="search_user_list" id="search_user_list" class="movie_select form-control" size="3"
+            style="height: auto"></select>
+          <br />
+        </form>
+        <div id="jsonContainer" class="card" style="display: none;">
+          <div class="card-body">
+            <h5 class="card-title">User Details</h5>
+            <div id="userData"></div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <br />
+  </div>
+  <script type="module" src="./js/firebase.js"></script>
+</body>
+
+</html>
